@@ -32,7 +32,7 @@ def output1():
             variables.flagOutput1 = 0
         else:
             outputLabel1 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                    width=2, bg='red', font=("Arial", 12),).place(x=205, y=60)
+                                    width=2, bg='red', font=("Arial", 12),).place(x=555, y=60)
             variables.flagOutput1 = 1
     except Exception as e:
         variables.flagOutput1 = 1
