@@ -5,3 +5,4 @@ The model of the power supplys are ZX-S800 LAN (Takasago).<br>
 Used libraries;<br>
 &ensp;tkinter >> GUI<br>
 &ensp;paramiko >> ssh<br>
+&ensp;time >> sleep<br>
