@@ -19,9 +19,9 @@ def before_close():
                 pass
         except Exception as e:
             noticeLabel1 = tk.Label(knobs.window, text='Check connection.', font=(
-                "Arial", 16), bg='red', relief=tk.RIDGE).place(x=10, y=540)
+                "Arial", 16), bg='red', relief=tk.RIDGE).place(x=50, y=520)
             pass
     else:
         noticeLabel1 = tk.Label(knobs.window, text='Check connection.', font=(
-            "Arial", 16), bg='red', relief=tk.RIDGE).place(x=10, y=540)
+            "Arial", 16), bg='red', relief=tk.RIDGE).place(x=50, y=520)
         pass

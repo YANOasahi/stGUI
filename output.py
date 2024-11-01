@@ -28,11 +28,11 @@ def output1():
         outp1 = stdout.read().decode()+stderr.read().decode()
         if outp1 == 'on':
             outputLabel1 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                    width=2, bg='green', font=("Arial", 12),).place(x=205, y=50)
+                                    width=2, bg='green', font=("Arial", 12),).place(x=205, y=60)
             variables.flagOutput1 = 0
         else:
             outputLabel1 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                    width=2, bg='red', font=("Arial", 12),).place(x=205, y=50)
+                                    width=2, bg='red', font=("Arial", 12),).place(x=205, y=60)
             variables.flagOutput1 = 1
     except Exception as e:
         variables.flagOutput1 = 1

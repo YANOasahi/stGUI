@@ -44,9 +44,9 @@ readLabel1 = tk.Label(window, text='Read', relief=tk.RIDGE,
 
 # for LED
 outputLabel0 = tk.Label(window, text=' ', relief=tk.RIDGE,
-                        width=2, bg='red', font=("Arial", 12),).place(x=205, y=50)
+                        width=2, bg='red', font=("Arial", 12),).place(x=205, y=60)
 outputLabel1 = tk.Label(window, text=' ', relief=tk.RIDGE,
-                        width=2, bg='red', font=("Arial", 12),).place(x=555, y=50)
+                        width=2, bg='red', font=("Arial", 12),).place(x=555, y=60)
 # for unit
 for i in range(2):
     unitLabelV = tk.Label(window, text='V', font=(
