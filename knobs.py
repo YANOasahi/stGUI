@@ -14,6 +14,7 @@ window = tk.Tk()
 window.title('Steerer controller')
 window.geometry(f'{set_width}x{set_height}+{set_xpos}+{set_ypos}')
 window.wm_minsize(width=set_width, height=set_height)
+window.tk.call("tk", "scaling", 1.0)
 
 # ---------- label
 magnets = ['ST1', 'ST2']

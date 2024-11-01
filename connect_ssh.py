@@ -1,5 +1,5 @@
 def connect_ssh0():
-    import paramiko
+    import paramiko# type: ignore
     import variables
 
     ssh_client = paramiko.SSHClient()
@@ -18,7 +18,7 @@ def connect_ssh0():
 
 
 def connect_ssh1():
-    import paramiko
+    import paramiko # type: ignore
     import variables
 
     ssh_client = paramiko.SSHClient()
