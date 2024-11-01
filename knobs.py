@@ -2,6 +2,8 @@ import tkinter as tk
 import variables
 import activate
 import set
+import threading
+import OneSec
 
 # ---------- set GUI window
 # ---------- window
