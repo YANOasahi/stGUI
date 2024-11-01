@@ -9,5 +9,6 @@ def onesec():
     read.read0()
     read.read1()
     read.outputCheck0()
+    read.outputCheck1()
     time.sleep(1)
     knobs.window.after(1000, onesec)
