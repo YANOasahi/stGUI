@@ -110,16 +110,16 @@ def outputCheck0():
         outp0 = stdout.read().decode()+stderr.read().decode()
         if outp0 == 'on':  # output bottun will be green
             outputLabel0 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                    width=2, bg='green', font=("Arial", 12),).place(x=205, y=50)
+                                    width=2, bg='green', font=("Arial", 12),).place(x=205, y=60)
             variables.flagOutput0 = 0
         else:  # output bottun will be red
             outputLabel0 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                    width=2, bg='red', font=("Arial", 12),).place(x=205, y=50)
+                                    width=2, bg='red', font=("Arial", 12),).place(x=205, y=60)
             variables.flagOutput0 = 1
     except Exception as e:
         # output bottun will be red
         outputLabel0 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                width=2, bg='red', font=("Arial", 12),).place(x=205, y=50)
+                                width=2, bg='red', font=("Arial", 12),).place(x=205, y=60)
         variables.flagOutput0 = 1
 
 
@@ -135,14 +135,14 @@ def outputCheck1():
         outp1 = stdout.read().decode()+stderr.read().decode()
         if outp1 == 'on':  # output bottun will be green
             outputLabel1 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                    width=2, bg='green', font=("Arial", 12),).place(x=205, y=50)
+                                    width=2, bg='green', font=("Arial", 12),).place(x=555, y=50)
             variables.flagOutput1 = 0
         else:  # output bottun will be red
             outputLabel1 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                    width=2, bg='red', font=("Arial", 12),).place(x=205, y=50)
+                                    width=2, bg='red', font=("Arial", 12),).place(x=555, y=50)
             variables.flagOutput1 = 1
     except Exception as e:
         # output bottun will be red
         outputLabel1 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
-                                width=2, bg='red', font=("Arial", 12),).place(x=205, y=50)
+                                width=2, bg='red', font=("Arial", 12),).place(x=55, y=60)
         variables.flagOutput1 = 1
