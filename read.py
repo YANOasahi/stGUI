@@ -96,3 +96,39 @@ def read1():
         knobs.ReadVoltage1.config(state=tk.NORMAL)
         variables.flagRead1 = 1
         return
+
+
+def outputCheck0():
+    import tkinter as tk
+    import variables
+    import knobs
+    import activate
+
+    try:
+        # read output status from power supply
+        stdin, stdout, stderr = activate.ssh0.exec_command('outp?')
+        read0_outpA = stdout.read().decode()+stderr.read().decode()
+        variables.flagOutput0 = 0
+    except Exception as e:
+        # insert 'XXX' to text boxes if we can't read
+        knobs.ReadCurrent0.config(state=tk.NORMAL)
+        knobs.ReadCurrent0.delete('0.0', tk.END)
+        knobs.ReadCurrent0.insert(tk.END, 'XXX')
+        knobs.ReadCurrent0.config(state=tk.DISABLED)
+        knobs.ReadVoltage0.config(state=tk.NORMAL)
+        knobs.ReadVoltage0.delete('0.0', tk.END)
+        knobs.ReadVoltage0.insert(tk.END, 'XXX')
+        knobs.ReadVoltage0.config(state=tk.NORMAL)
+        variables.flagRead0 = 1
+    else:
+        # insert 'XXX' to text boxes if ssh is disconnected
+        knobs.ReadCurrent0.config(state=tk.NORMAL)
+        knobs.ReadCurrent0.delete('0.0', tk.END)
+        knobs.ReadCurrent0.insert(tk.END, 'XXX')
+        knobs.ReadCurrent0.config(state=tk.DISABLED)
+        knobs.ReadVoltage0.config(state=tk.NORMAL)
+        knobs.ReadVoltage0.delete('0.0', tk.END)
+        knobs.ReadVoltage0.insert(tk.END, 'XXX')
+        knobs.ReadVoltage0.config(state=tk.NORMAL)
+        variables.flagRead0 = 1
+        return

@@ -2,8 +2,7 @@ import tkinter as tk
 import variables
 import activate
 import set
-import threading
-import OneSec
+import output
 
 # ---------- set GUI window
 # ---------- window
@@ -21,6 +20,7 @@ window.tk.call("tk", "scaling", 1.0)
 # ---------- label
 magnets = ['ST1', 'ST2']
 addresses = []
+
 # for IP address
 for i in range(len(variables.ip)):
     addresses.append(f'{variables.ip[i]}:{variables.port[i]}')
@@ -29,21 +29,19 @@ for i in range(len(variables.ip)):
         "Arial", 16), relief=tk.RIDGE).place(x=10+350*i, y=10)
     ipLabel1 = tk.Label(window, text=f'IP is {addresses[i]}', height=2, font=(
         "Arial", 12), relief=tk.RIDGE).place(x=10+350*i, y=90)
+
 # for connection
 connectLabel0 = tk.Label(window, text='Disconnected', font=("Arial", 12),
                          bg='red', width=12).place(x=105, y=10)
 connectLabel1 = tk.Label(window, text='Disconnected', font=("Arial", 12),
                          bg='red', width=12).place(x=455, y=10)
+
 # for 'Read'
 readLabel0 = tk.Label(window, text='Read', relief=tk.RIDGE,
                       width=6, height=2, font=("Arial", 12),).place(x=145, y=160)
 readLabel1 = tk.Label(window, text='Read', relief=tk.RIDGE,
                       width=6, height=2, font=("Arial", 12),).place(x=495, y=160)
-# for 'Output'
-outputLabel0 = tk.Label(window, text='Output', relief=tk.RIDGE,
-                        width=8, font=("Arial", 12),).place(x=105, y=50)
-outputLabel1 = tk.Label(window, text='Output', relief=tk.RIDGE,
-                        width=8, font=("Arial", 12),).place(x=455, y=50)
+
 # for LED
 outputLabel0 = tk.Label(window, text=' ', relief=tk.RIDGE,
                         width=2, bg='red', font=("Arial", 12),).place(x=205, y=50)
@@ -91,6 +89,7 @@ activate1_Button = tk.Button(
     command=lambda: activate.activate1("addr 1")
 )
 activate1_Button.place(x=360, y=130)
+
 # for setting current
 setButton0 = tk.Button(
     window, text='Set', command=lambda: set.set0())
@@ -98,3 +97,9 @@ setButton0.place(x=140, y=395)
 setButton1 = tk.Button(
     window, text='Set', command=lambda: set.set1())
 setButton1.place(x=500, y=395)
+
+# for 'Output'
+outputButton0 = tk.Button(window, text='Output', width=8, font=(
+    "Arial", 12), command=lambda: output.output0()).place(x=105, y=50)
+outputButton1 = tk.Button(window, text='Output', width=8, font=(
+    "Arial", 12), command=lambda: output.output1()).place(x=455, y=50)
