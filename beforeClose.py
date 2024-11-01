@@ -3,7 +3,6 @@ def before_close():
     import activate
     import knobs
     import tkinter as tk
-    import paramiko  # type: ignore
 
     if variables.flagSSH0 == 0:
         try:
