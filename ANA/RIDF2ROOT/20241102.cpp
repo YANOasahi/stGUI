@@ -171,6 +171,7 @@ void ridf2root(int runN=48, TString runname="56Co", bool tree_output=0, int load
   hraw_v1190[0] = new TH2D("hraw_v1190_0",Form("V1190-0 (PPAC| F3) rawdata | run%04d;ID;T (ns)",runN),128,0,128,1000,0,200000);
   hraw_v1190[1] = new TH2D("hraw_v1190_1",Form("V1190-1 (PPAC| F5) rawdata | run%04d;ID;T (ns)",runN),128,0,128,1000,0,200000);
   hraw_v1190[2] = new TH2D("hraw_v1190_2",Form("V1190-2 (PPAC| F7) rawdata | run%04d;ID;T (ns)",runN),128,0,128,1000,0,200000);
+  
   TH2D *hraw_v1190num[3];
   hraw_v1190num[0] = new TH2D("hraw_v1190num_0",Form("V1190 (PPAC| F3) Multiplicity | run%04d;ID;#it{N}_{hit}",runN),128,0,128,5,0,5);
   hraw_v1190num[1] = new TH2D("hraw_v1190num_1",Form("V1190 (PPAC| F5) Multiplicity | run%04d;ID;#it{N}_{hit}",runN),128,0,128,5,0,5);
@@ -179,9 +180,11 @@ void ridf2root(int runN=48, TString runname="56Co", bool tree_output=0, int load
   TH2D *hraw_v1290L[2];
   hraw_v1290L[0] = new TH2D("hraw_v1290L_0",Form("V1290L (PLA-T) rawdata | run%04d;ID;T (ns)"          ,runN),32,0,32,1000,0,25000);
   hraw_v1290L[1] = new TH2D("hraw_v1290L_1",Form("V1290 Leading  (PLA-QTC) rawdata | run%04d;ID;T (ns)",runN),32,0,32,500,0,3000);
+  
   TH2D *hraw_v1290Lnum[2];
   hraw_v1290Lnum[0] = new TH2D("hraw_v1290Lnum_0",Form("V1290 (PLA-T) Multiplicity | run%04d;ID;#it{N}_{hit}"          ,runN),32,0,32,10,0,10);
   hraw_v1290Lnum[1] = new TH2D("hraw_v1290Lnum_1",Form("V1290 Leading (PLA-QTC) Multiplicity | run%04d;ID;#it{N}_{hit}",runN),32,0,32,10,0,10);
+  
   TH2D *hraw_v1290Lnum2[2];
   hraw_v1290Lnum2[0] = new TH2D("hraw_v1290Lnum2_0",Form("V1290 (PLA-T) Multiplicity2 | run%04d;ID;#it{N}_{hit}"          ,runN),32,0,32,10,0,10);
   hraw_v1290Lnum2[1] = new TH2D("hraw_v1290Lnum2_1",Form("V1290 Leading (PLA-QTC) Multiplicity2 | run%04d;ID;#it{N}_{hit}",runN),32,0,32,10,0,10);
@@ -195,11 +198,13 @@ void ridf2root(int runN=48, TString runname="56Co", bool tree_output=0, int load
   */
   TH2D *hraw_v1290T;
   hraw_v1290T = new TH2D("hraw_v1290T",Form("V1290 Trailing (PLA-QTC) rawdata | run%04d;ID;T (ns)" ,runN),32,0,32,1500,0,3000);
+  
   TH2D *hraw_v1290W;
   hraw_v1290W = new TH2D("hraw_v1290W",Form("V1290 Width (PLA-QTC) rawdata | run%04d;ID;Width (ns)",runN),32,0,32,400,-100,1100);
 
   TH2D *hraw_qdc;
   hraw_qdc = new TH2D("hraw_qdc",Form("QDC (PLA) rawdata | run%04d;ID;Q (ch)",runN),16,0,16,430,-100,4200);
+  
   TH2D *hraw_adc[4];
   hraw_adc[0] = new TH2D("hraw_adc_F07IC",Form("ADC (F07MUSIC) rawdata | run%04d;ID;ADC (ch)",runN),8,0,8,860,-200,8400);
   hraw_adc[1] = new TH2D("hraw_adc_F08IC",Form("ADC (F08MUSIC) rawdata | run%04d;ID;ADC (ch)",runN),4,0,4,860,-200,8400);
@@ -218,7 +223,7 @@ void ridf2root(int runN=48, TString runname="56Co", bool tree_output=0, int load
 
   TH2D *hraw_PLA_v1290[2];
   hraw_PLA_v1290[0] = new TH2D("hraw_PLA_v1290_T"  ,Form("PLA-T   V1290raw | run%04d;F03/F05/F07/F08/F09/F11/F8VETO/F11Long/F3-2/F5-2/F7-2;V1290raw (ch)",runN),22,0,22,500,400e3,600e3);
-  hraw_PLA_v1290[1] = new TH2D("hraw_PLA_v1290_QTC",Form("PLA-QTC V1290raw | run%04d;F03/F05/F07/F08/F09/F11/F8VETO/F11Long;V1290raw (ch)"               ,runN),16,0,16,500,   0*40,1000*40);
+  hraw_PLA_v1290[1] = new TH2D("hraw_PLA_v1290_QTC",Form("PLA-QTC V1290raw | run%04d;F03/F05/F07/F08/F09/F11/F8VETO/F11Long;V1290raw (ch)",runN),16,0,16,500,0*40,1000*40);
 
   // 
   TH2D *hcalib_pileup_IC[3];
@@ -237,6 +242,7 @@ void ridf2root(int runN=48, TString runname="56Co", bool tree_output=0, int load
   hraw_PPAC_Traw[4] = new TH2D("hraw_PPAC_Traw_F09",Form("F09PPAC Traw | run%04d;ID;T (ns)",runN),20,0,20,400,-200000,200000);
   hraw_PPAC_Traw[5] = new TH2D("hraw_PPAC_Traw_F10",Form("F10PPAC Traw | run%04d;ID;T (ns)",runN),20,0,20,400,-200000,200000);
   hraw_PPAC_Traw[6] = new TH2D("hraw_PPAC_Traw_F11",Form("F11PPAC Traw | run%04d;ID;T (ns)",runN),20,0,20,400,-200000,200000);
+  
   TH2D *hraw_PPAC_T[7];
   hraw_PPAC_T[0] = new TH2D("hraw_PPAC_T_F03",Form("F03PPAC T | run%04d;ID;T (ns)",runN),20,0,20,400,-2000,2000);
   hraw_PPAC_T[1] = new TH2D("hraw_PPAC_T_F05",Form("F05PPAC T | run%04d;ID;T (ns)",runN),20,0,20,400,-2000,2000);
@@ -245,6 +251,7 @@ void ridf2root(int runN=48, TString runname="56Co", bool tree_output=0, int load
   hraw_PPAC_T[4] = new TH2D("hraw_PPAC_T_F09",Form("F09PPAC T | run%04d;ID;T (ns)",runN),20,0,20,400,-2000,2000);
   hraw_PPAC_T[5] = new TH2D("hraw_PPAC_T_F10",Form("F10PPAC T | run%04d;ID;T (ns)",runN),20,0,20,400,-2000,2000);
   hraw_PPAC_T[6] = new TH2D("hraw_PPAC_T_F11",Form("F11PPAC T | run%04d;ID;T (ns)",runN),20,0,20,400,-2000,2000);
+  
   //===== Plastic ==========
   TH2D *hraw_PLA_T;
   hraw_PLA_T    = new TH2D("hraw_PLA_T",   Form("Plastic T | run%04d;F3/F5/F7/F8/F9/F11/F8VETO/F11Long/F3-2/F5-2/F7-2;T(ns)"    ,runN),22,0,22,600,-300,300);
@@ -254,12 +261,14 @@ void ridf2root(int runN=48, TString runname="56Co", bool tree_output=0, int load
   hraw_PLA_Qraw = new TH2D("hraw_PLA_Qraw",Form("Plastic Qraw | run%04d;F3/F5/F7/F8/F9/F11/F8VETO/F11Long;Qraw (ch)"            ,runN),16,0,16,430,-100,4200);
   TH2D *hraw_PLA_Mhit;
   hraw_PLA_Mhit = new TH2D("hraw_PLA_Mhit",Form("Ratio of Multiplicity | run%04d;F3/F5/F7/F8/F9/F11/F8VETO/F11Long;Multiplicity",runN),16,0,16,5,0,5);
+  
   //===== MUSIC ==========
   TH2D *hraw_IC_Eraw[4];
   hraw_IC_Eraw[0] = new TH2D("hraw_IC_Eraw_F07",Form("F07IC Eraw | run%04d;ID;Eraw (ch)",runN),6,0,6, 8400,-200, 8400);
   hraw_IC_Eraw[1] = new TH2D("hraw_IC_Eraw_F08",Form("F08IC Eraw | run%04d;ID;Eraw (ch)",runN),3,0,3, 860,-200, 8400);
   hraw_IC_Eraw[2] = new TH2D("hraw_IC_Eraw_F11",Form("F11IC Eraw | run%04d;ID;Eraw (ch)",runN),6,0,6, 430,-100, 4200);
   hraw_IC_Eraw[3] = new TH2D("hraw_IC_Eraw_F03",Form("F03IC Eraw | run%04d;ID;Eraw (ch)",runN),6,0,6, 860,-200, 8400);
+  
   //===== Ge =============
   TH2D *hraw_Ge_Eraw[2];
   hraw_Ge_Eraw[0] = new TH2D("hraw_Ge_Eraw_F07",Form("F07Ge Eraw | run%04d;ID;Eraw (ch)",runN),8,0,8, 8000,-200,8400);
