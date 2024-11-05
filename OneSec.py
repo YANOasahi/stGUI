@@ -6,8 +6,8 @@ import tkinter as tk
 
 def onesec():
     # read current from power supply in every 1 second
-    read.read0()
-    read.read1()
+    read.getValues0()
+    read.getValues1()
     read.outputCheck0()
     read.outputCheck1()
     time.sleep(1)

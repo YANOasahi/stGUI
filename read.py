@@ -1,4 +1,10 @@
-def read0():
+def getValues0():
+    import threading
+
+    threading.Thread(target=_read0).start()
+
+
+def _read0():
     import tkinter as tk
     import variables
     import knobs
@@ -45,10 +51,15 @@ def read0():
         knobs.ReadVoltage0.insert(tk.END, 'XXX')
         knobs.ReadVoltage0.config(state=tk.NORMAL)
         variables.flagRead0 = 1
-        return
 
 
-def read1():
+def getValues1():
+    import threading
+
+    threading.Thread(target=_read1).start()
+
+
+def _read1():
     import tkinter as tk
     import variables
     import knobs
@@ -95,7 +106,6 @@ def read1():
         knobs.ReadVoltage1.insert(tk.END, 'XXX')
         knobs.ReadVoltage1.config(state=tk.NORMAL)
         variables.flagRead1 = 1
-        return
 
 
 def outputCheck0():
