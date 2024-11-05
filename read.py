@@ -109,6 +109,12 @@ def _read1():
 
 
 def outputCheck0():
+    import threading
+
+    threading.Thread(target=_outpu0).start()
+
+
+def _outpu0():
     import tkinter as tk
     import variables
     import knobs
@@ -134,6 +140,12 @@ def outputCheck0():
 
 
 def outputCheck1():
+    import threading
+
+    threading.Thread(target=_outpu1).start()
+
+
+def _outpu1():
     import tkinter as tk
     import variables
     import knobs
