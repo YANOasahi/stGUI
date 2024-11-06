@@ -12,7 +12,7 @@ def set0():
     command = knobs.SetCurrent0.get()
     try:
         stdin, stdout, stderr = activate.ssh0.exec_command(command)
-        set0_outp = stdout.read().decode()+stderr.read().decode()
+        set0_outp = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
         knobs.SetCurrent0.delete(0, tk.END)
         knobs.SetCurrent0.insert(tk.END, f'{set0_outp}')
         variables.flagSet0 = 0
@@ -38,7 +38,7 @@ def set1():
     command = knobs.SetCurrent1.get()
     try:
         stdin, stdout, stderr = activate.ssh1.exec_command(command)
-        set1_outp = stdout.read().decode()+stderr.read().decode()
+        set1_outp = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
         knobs.SetCurrent1.delete(0, tk.END)
         knobs.SetCurrent1.insert(tk.END, f'{set1_outp}')
         variables.flagSet1 = 0

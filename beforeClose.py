@@ -8,7 +8,7 @@ def before_close():
         try:
             # read current from power supply
             stdin, stdout, stderr = activate.ssh0.exec_command('meas:curr?')
-            read0_outpA = stdout.read().decode()+stderr.read().decode()
+            read0_outpA = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
             if read0_outpA == '0.0':
                 knobs.window.destroy()
             else:
