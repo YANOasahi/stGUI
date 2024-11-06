@@ -7,7 +7,7 @@ def connect_ssh0():
 
     try:
         ssh_client.connect(
-            hostname=f'{variables.ip[0]}:{variables.port[0]}', timeout=2)
+            hostname=f'{variables.ip[0]}', port=f'{variables.port[0]}', timeout=2)
         print(f'connected to {variables.ip[0]}:{variables.port[0]}')
         variables.flagSSH0 = 0
         return ssh_client
@@ -26,7 +26,7 @@ def connect_ssh1():
 
     try:
         ssh_client.connect(
-            hostname=f'{variables.ip[1]}:{variables.port[1]}', timeout=2)
+            hostname=f'{variables.ip[1]}', port=f'{variables.port[1]}', timeout=2)
         print(f'connected to {variables.ip[1]}:{variables.port[1]}')
         variables.flagSSH1 = 0
         return ssh_client
