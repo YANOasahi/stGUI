@@ -7,6 +7,7 @@ def set0():
     if variables.flagOutput0 == 1:
         knobs.SetCurrent0.delete(0, tk.END)
         knobs.SetCurrent0.insert(tk.END, 'OUTPUT')
+        return
 
     command = knobs.SetCurrent0.get()
     try:
