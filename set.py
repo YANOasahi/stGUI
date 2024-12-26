@@ -2,19 +2,18 @@ def set0():
     import tkinter as tk
     import variables
     import knobs
-    import activate
+    import subprocess
 
     if variables.flagOutput0 == 1:
         knobs.SetCurrent0.delete(0, tk.END)
         knobs.SetCurrent0.insert(tk.END, 'OUTPUT')
-        return
+        exit()
 
     command = knobs.SetCurrent0.get()
     try:
-        stdin, stdout, stderr = activate.ssh0.exec_command(command)
-        set0_outp = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+        set0_outp = subprocess.run(command)
         knobs.SetCurrent0.delete(0, tk.END)
-        knobs.SetCurrent0.insert(tk.END, f'{set0_outp}')
+        knobs.SetCurrent0.insert(tk.END, set0_outp)
         variables.flagSet0 = 0
     except Exception as e:
         variables.flagSet0 = 1
@@ -29,6 +28,7 @@ def set1():
     import knobs
     import activate
     import tkinter as tk
+    import subprocess
 
     if variables.flagOutput1 == 1:
         knobs.SetCurrent1.delete(0, tk.END)
@@ -37,10 +37,9 @@ def set1():
 
     command = knobs.SetCurrent1.get()
     try:
-        stdin, stdout, stderr = activate.ssh1.exec_command(command)
-        set1_outp = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+        set1_outp = subprocess.run(command)
         knobs.SetCurrent1.delete(0, tk.END)
-        knobs.SetCurrent1.insert(tk.END, f'{set1_outp}')
+        knobs.SetCurrent1.insert(tk.END, set1_outp)
         variables.flagSet1 = 0
     except Exception as e:
         variables.flagSet1 = 1

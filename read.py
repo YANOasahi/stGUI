@@ -8,20 +8,18 @@ def _read0():
     import tkinter as tk
     import variables
     import knobs
-    import activate
+    import subprocess
 
     if variables.flagSSH0 == 0:
         try:
             # read current from power supply
-            stdin, stdout, stderr = activate.ssh0.exec_command('meas:curr?')
-            read0_outpA = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+            read0_outpA = float(subprocess.run('meas:curr?'))
             knobs.ReadCurrent0.config(state=tk.NORMAL)
             knobs.ReadCurrent0.delete('0.0', tk.END)
             knobs.ReadCurrent0.insert(tk.END, f'{read0_outpA}')
             knobs.ReadCurrent0.config(state=tk.DISABLED)
             # read voltage from power supply
-            stdin, stdout, stderr = activate.ssh0.exec_command('meas:volt?')
-            read0_outpV = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+            read0_outpV = float(subprocess.run('meas:volt?'))
             knobs.ReadVoltage0.config(state=tk.NORMAL)
             knobs.ReadVoltage0.delete('0.0', tk.END)
             knobs.ReadVoltage0.insert(tk.END, f'{read0_outpV}')
@@ -63,20 +61,18 @@ def _read1():
     import tkinter as tk
     import variables
     import knobs
-    import activate
+    import subprocess
 
     if variables.flagSSH1 == 0:
         try:
             # read current from power supply
-            stdin, stdout, stderr = activate.ssh1.exec_command('meas:curr?')
-            read0_outpA = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+            read0_outpA = float(subprocess.run('meas:curr?'))
             knobs.ReadCurrent1.config(state=tk.NORMAL)
             knobs.ReadCurrent1.delete('0.0', tk.END)
             knobs.ReadCurrent1.insert(tk.END, f'{read0_outpA}')
             knobs.ReadCurrent1.config(state=tk.DISABLED)
             # read voltage from power supply
-            stdin, stdout, stderr = activate.ssh1.exec_command('meas:volt?')
-            read0_outpV = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+            read0_outpV = float(subprocess.run('meas:volt?'))
             knobs.ReadVoltage1.config(state=tk.NORMAL)
             knobs.ReadVoltage1.delete('0.0', tk.END)
             knobs.ReadVoltage1.insert(tk.END, f'{read0_outpV}')
@@ -118,12 +114,11 @@ def _outpu0():
     import tkinter as tk
     import variables
     import knobs
-    import activate
+    import subprocess
 
     try:
         # read output status from power supply
-        stdin, stdout, stderr = activate.ssh0.exec_command('outp?')
-        outp0 = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+        outp0 = subprocess.run('outp?')
         if outp0 == 'on':  # output bottun will be green
             outputLabel0 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
                                     width=2, bg='green', font=("Arial", 12),).place(x=205, y=60)
@@ -149,12 +144,11 @@ def _outpu1():
     import tkinter as tk
     import variables
     import knobs
-    import activate
+    import subprocess
 
     try:
         # read output status from power supply
-        stdin, stdout, stderr = activate.ssh1.exec_command('outp?')
-        outp1 = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+        outp1 = subprocess.run('outp?')
         if outp1 == 'on':  # output bottun will be green
             outputLabel1 = tk.Label(knobs.window, text=' ', relief=tk.RIDGE,
                                     width=2, bg='green', font=("Arial", 12),).place(x=555, y=50)

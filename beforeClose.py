@@ -3,12 +3,12 @@ def before_close():
     import activate
     import knobs
     import tkinter as tk
+    import subprocess
 
     if variables.flagSSH0 == 0:
         try:
             # read current from power supply
-            stdin, stdout, stderr = activate.ssh0.exec_command('meas:curr?')
-            read0_outpA = stdout.read().decode('UTF-8')+stderr.read().decode('UTF-8')
+            read0_outpA = subprocess.run('meas:curr?')
             if read0_outpA == '0.0':
                 knobs.window.destroy()
             else:

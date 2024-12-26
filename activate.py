@@ -1,38 +1,36 @@
-def activate0(command):
+def activate0():
     import tkinter as tk
-    import connect_ssh
     import variables
     import knobs
+    import subprocess
 
     if variables.flagSSH0 == 1:
-        return
-
-    ssh0 = connect_ssh.connect_ssh0()
+        exit()
 
     try:
-        stdin, stdout, stderr = ssh0.exec_command(command)
-        connectLabel0 = tk.Label(knobs.window, text='Connected', font=("Arial", 12),
-                                 bg='green', width=12).place(x=105, y=10)
+        answer = subprocess.run(['addr','1'])
+        print(answer)
         variables.flagActivate0 = 0
+        exit()
     except Exception as e:
         variables.flagActivate0 = 1
+        exit()
 
 
-def activate1(command):
+def activate1():
     import tkinter as tk
-    import connect_ssh
     import variables
     import knobs
+    import subprocess
 
     if variables.flagSSH1 == 1:
-        return
-
-    ssh1 = connect_ssh.connect_ssh1()
+        exit()
 
     try:
-        stdin, stdout, stderr = ssh1.exec_command(command)
-        connectLabel1 = tk.Label(knobs.window, text='Connected', font=("Arial", 12),
-                                 bg='green', width=12).place(x=455, y=10)
+        answer = subprocess.run(['addr','1'])
+        print(answer)
         variables.flagActivate1 = 0
+        exit()
     except Exception as e:
         variables.flagActivate1 = 1
+        exit()

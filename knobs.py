@@ -80,13 +80,13 @@ SetCurrent1.place(x=360, y=430, width=250, height=75)
 activate0_Button = tk.Button(
     window,
     text="Activate ST1",
-    command=lambda: activate.activate0("addr 1")
+    command=lambda: activate.activate0()
 )
 activate0_Button.place(x=10, y=130)
 activate1_Button = tk.Button(
     window,
     text="Activate ST2",
-    command=lambda: activate.activate1("addr 1")
+    command=lambda: activate.activate1()
 )
 activate1_Button.place(x=360, y=130)
 
