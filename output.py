@@ -5,7 +5,7 @@ def output0():
     import subprocess
 
     if variables.flagActivate0 == 1:
-        exit()
+        return
 
     try:
         outp0 = subprocess.run('outp on')

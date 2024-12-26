@@ -7,7 +7,6 @@ def set0():
     if variables.flagOutput0 == 1:
         knobs.SetCurrent0.delete(0, tk.END)
         knobs.SetCurrent0.insert(tk.END, 'OUTPUT')
-        exit()
 
     command = knobs.SetCurrent0.get()
     try:
@@ -26,7 +25,6 @@ def set0():
 def set1():
     import variables
     import knobs
-    import activate
     import tkinter as tk
     import subprocess
 
